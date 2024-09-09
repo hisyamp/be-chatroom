@@ -61,3 +61,7 @@ group :test do
 end
 
 gem 'bootsnap', '>= 1.4.0', require: false
+
+gem 'mongoid', git: 'https://github.com/mongodb/mongoid.git', branch: 'master'
+
+

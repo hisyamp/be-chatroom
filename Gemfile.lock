@@ -1,3 +1,13 @@
+GIT
+  remote: https://github.com/mongodb/mongoid.git
+  revision: a79e90cb67b8a5865e99a1c6d7cb11e0d7591e7c
+  branch: master
+  specs:
+    mongoid (9.0.1)
+      activemodel (>= 5.1, < 7.3, != 7.0.0)
+      concurrent-ruby (>= 1.0.5, < 2.0)
+      mongo (>= 2.18.0, < 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -82,6 +92,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
+    bson (5.0.1)
     builder (3.3.0)
     capybara (3.40.0)
       addressable
@@ -129,6 +140,8 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     minitest (5.25.1)
+    mongo (2.20.1)
+      bson (>= 4.14.1, < 6.0.0)
     msgpack (1.7.2)
     mutex_m (0.2.0)
     net-imap (0.4.16)
@@ -256,6 +269,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  mongoid!
   puma (>= 5.0)
   rails (~> 7.1.4)
   selenium-webdriver
@@ -266,7 +280,7 @@ DEPENDENCIES
   web-console
 
 RUBY VERSION
-   ruby 3.2.5p208
+   ruby 3.1.1p18
 
 BUNDLED WITH
    2.5.18
