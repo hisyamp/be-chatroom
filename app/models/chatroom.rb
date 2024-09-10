@@ -4,6 +4,7 @@ class Chatroom
 
   # Fields for chatroom details
   field :name, type: String
+  field :code, type: String
   field :description, type: String
 
   embeds_many :messages
