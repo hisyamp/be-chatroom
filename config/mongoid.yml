@@ -32,10 +32,10 @@ development:
         #     - use: web
 
         # The name of the user for authentication.
-        # user: 'root'
+        user: 'root'
 
         # The password of the user for authentication.
-        # password: 'root'
+        password: 'root'
 
         # The user's database roles.
         # roles:
