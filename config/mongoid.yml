@@ -6,7 +6,7 @@ development:
       # Mongoid can connect to a URI accepted by the driver:
       # uri: mongodb://localhost:27017/app_development
       # uri: <%= ENV['MONGODB_URL'] %>
-      uri: mongodb://root:root@18.141.187.131:27017
+      uri: mongodb://root:root@13.250.107.199:27017
       # Otherwise define the parameters separately.
       # This defines the name of the default database that Mongoid can connect to.
       # (required).
