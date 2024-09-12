@@ -1,3 +1,5 @@
+require 'net/http'
+
 class Api::V1::MessagesController < ApplicationController
   before_action :set_chatroom
 
@@ -14,7 +16,9 @@ class Api::V1::MessagesController < ApplicationController
     if message.save
       # Fetch all messages in the chatroom after a successful message save
       messages = @chatroom.messages
-      # Optionally, you can send the messages to a WebSocket or Socket.IO server here
+
+      # Hit the external API after successfully saving the message
+      emit_event_to_socket_server(@chatroom.id, messages)
 
       # Return all messages related to the chatroom
       render json: { chatroom_id: @chatroom.id, messages: messages }, status: :created
@@ -49,15 +53,22 @@ class Api::V1::MessagesController < ApplicationController
 
   private
 
-  # Find the chatroom based on chatroom_id
   def set_chatroom
     @chatroom = Chatroom.find(params[:chatroom_id])
   rescue Mongoid::Errors::DocumentNotFound
     render json: { error: 'Chatroom not found' }, status: :not_found
   end
 
-  # Strong parameters for message creation and update
   def message_params
     params.require(:message).permit(:content, :sender)
+  end
+
+  def emit_event_to_socket_server(chatroom_id, messages)
+    uri = URI('http://18.141.187.131:4000/emit-event')
+    http = Net::HTTP.new(uri.host, uri.port)
+    request = Net::HTTP::Post.new(uri.path, 'Content-Type' => 'application/json')
+    request.body = { chatroom_id: chatroom_id, messages: messages }.to_json
+    response = http.request(request)
+    Rails.logger.info("Emit Event Response: #{response.body}")
   end
 end

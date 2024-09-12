@@ -68,3 +68,4 @@ gem 'rack-cors'
 
 gem 'http'
 
+gem 'dotenv-rails', groups: [:development, :test]

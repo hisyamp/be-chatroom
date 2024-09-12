@@ -2,10 +2,10 @@ class Chatroom
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  # Fields for chatroom details
   field :name, type: String
   field :code, type: String
   field :description, type: String
+  field :created_by, type: String
 
   embeds_many :messages
 
