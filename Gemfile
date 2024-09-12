@@ -67,5 +67,3 @@ gem 'mongoid', git: 'https://github.com/mongodb/mongoid.git', branch: 'master'
 gem 'rack-cors'
 
 gem 'http'
-
-gem 'dotenv-rails', groups: [:development, :test]

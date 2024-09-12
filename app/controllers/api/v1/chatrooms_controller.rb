@@ -43,7 +43,7 @@ module Api
         private
   
         def chatroom_params
-          params.require(:chatroom).permit(:name, :description)
+          params.require(:chatroom).permit(:name, :description, :created_by)
         end
       end
     end

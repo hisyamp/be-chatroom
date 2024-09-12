@@ -19,9 +19,9 @@ module App
     # Initialize configuration defaults for originally generated Rails version.
 
     # Load Dotenv only in development or test environment
-    if Rails.env.development? || Rails.env.test?
-      Dotenv::Railtie.load
-    end
+    # if Rails.env.development? || Rails.env.test?
+    #   Dotenv::Railtie.load
+    # end
 
      # CORS configuration
      config.middleware.insert_before 0, Rack::Cors do

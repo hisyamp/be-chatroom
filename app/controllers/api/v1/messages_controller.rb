@@ -64,7 +64,7 @@ class Api::V1::MessagesController < ApplicationController
   end
 
   def emit_event_to_socket_server(chatroom_id, messages)
-    uri = URI('http://18.141.187.131:4000/emit-event')
+    uri = URI('http://13.250.107.199:4000/emit-event')
     http = Net::HTTP.new(uri.host, uri.port)
     request = Net::HTTP::Post.new(uri.path, 'Content-Type' => 'application/json')
     request.body = { chatroom_id: chatroom_id, messages: messages }.to_json
