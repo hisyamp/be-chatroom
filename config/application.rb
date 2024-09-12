@@ -23,6 +23,17 @@ module App
       Dotenv::Railtie.load
     end
 
+     # CORS configuration
+     config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*' # Allow requests from any origin
+        resource '*', # Allow requests to any resource
+          headers: :any, # Allow any headers
+          methods: [:get, :post, :put, :patch, :delete, :options, :head], # Allow these HTTP methods
+          expose: ['Authorization'], # Expose any custom headers (optional)
+          max_age: 600
+      end
+    end
     # Other configurations...
   end
 end
